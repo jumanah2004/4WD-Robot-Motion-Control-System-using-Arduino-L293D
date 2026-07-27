@@ -37,7 +37,7 @@ The **L293D H-Bridge driver** allows the Arduino to regulate the rotation direct
 ## 📐 Circuit Diagram
 
 ![Circuit Diagram](https://github.com/jumanah2004/4WD-Robot-Motion-Control-System-using-Arduino-L293D/blob/bed14c72d7be31ed2c1d8c994eb46859effc541a/dc.png)
-*(Save your circuit image as `circuit.png` in the same repository directory to render it properly)*
+
 
 ---
 ## 🎬 Video Demonstration
