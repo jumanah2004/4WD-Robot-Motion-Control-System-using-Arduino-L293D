@@ -42,7 +42,8 @@ The **L293D H-Bridge driver** allows the Arduino to regulate the rotation direct
 ---
 ## 🎬 Video Demonstration
 
-
+[also the link of video!](
+)
 ---
 ## 💻 Arduino Code
 
