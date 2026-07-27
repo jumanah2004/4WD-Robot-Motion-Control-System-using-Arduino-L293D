@@ -33,7 +33,13 @@ The **L293D H-Bridge driver** allows the Arduino to regulate the rotation direct
 * **Jumper Wires**
 
 ---
+## 🔗 Interactive Tinkercad Circuit Simulation
 
+👉 **[Click Here to Launch the Tinkercad Simulation](https://www.tinkercad.com/things/lXKyrP2NtSe-dc-motor-use-l293d)**
+
+> 📌 **Note:** You can click the "Start Simulation" button inside Tinkercad to watch the motors execute the programmed directional logic.
+
+---
 ## 📐 Circuit Diagram
 
 ![Circuit Diagram](https://github.com/jumanah2004/4WD-Robot-Motion-Control-System-using-Arduino-L293D/blob/bed14c72d7be31ed2c1d8c994eb46859effc541a/dc.png)
