@@ -36,7 +36,7 @@ The **L293D H-Bridge driver** allows the Arduino to regulate the rotation direct
 
 ## 📐 Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+![Circuit Diagram](https://github.com/jumanah2004/4WD-Robot-Motion-Control-System-using-Arduino-L293D/blob/bed14c72d7be31ed2c1d8c994eb46859effc541a/dc.png)
 *(Save your circuit image as `circuit.png` in the same repository directory to render it properly)*
 
 ---
@@ -44,83 +44,83 @@ The **L293D H-Bridge driver** allows the Arduino to regulate the rotation direct
 ## 💻 Arduino Code
 
 ```cpp
-// L293D Control Pins Definition
-const int IN1 = 2; // Left side control pin 1
-const int IN2 = 3; // Left side control pin 2
-const int IN3 = 4; // Right side control pin 1
-const int IN4 = 5; // Right side control pin 2
+// L293D Motor Driver
+
+// Left Motors
+int ENA = 5;
+int IN1 = 2;
+int IN2 = 3;
+
+// Right Motors
+int ENB = 6;
+int IN3 = 4;
+int IN4 = 7;
 
 void setup() {
+
+  pinMode(ENA, OUTPUT);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
+
+  pinMode(ENB, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
-}
 
-// Helper function to stop all motors
-void stopMotors() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, LOW);
-}
-
-// Function to move forward
-void moveForward() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
-}
-
-// Function to move backward
-void moveBackward() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
-}
-
-// Function to turn right
-void turnRight() {
-  digitalWrite(IN1, HIGH);
-  digitalWrite(IN2, LOW);
-  digitalWrite(IN3, LOW);
-  digitalWrite(IN4, HIGH);
-}
-
-// Function to turn left
-void turnLeft() {
-  digitalWrite(IN1, LOW);
-  digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, HIGH);
-  digitalWrite(IN4, LOW);
+  digitalWrite(ENA, HIGH);
+  digitalWrite(ENB, HIGH);
 }
 
 void loop() {
-  // 1. Move Forward for 30 seconds
-  moveForward();
+
+  // ===== Move Forward for 30 seconds =====
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+
   delay(30000);
 
-  stopMotors();
-  delay(1000); // Short pause to protect motors
+  // ===== Stop for 1 minute =====
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
 
-  // 2. Move Backward for 1 minute (60 seconds)
-  moveBackward();
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+
   delay(60000);
 
-  stopMotors();
-  delay(1000);
+  // ===== Turn Right and Left Alternately for 1 minute =====
+  for (int i = 0; i < 6; i++) {
 
-  // 3. Alternate between Turning Right and Left for 1 minute
-  // (30 cycles * 2 seconds per cycle = 60 seconds)
-  for (int i = 0; i < 30; i++) {
-    turnRight();
-    delay(1000);
-    turnLeft();
-    delay(1000);
+    // Turn Right (5 seconds)
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+
+    delay(5000);
+
+    // Turn Left (5 seconds)
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, HIGH);
+
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+
+    delay(5000);
   }
 
-  stopMotors();
-  delay(2000); // Pause before repeating loop
+  // ===== Final Stop =====
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+
+  digitalWrite(ENA, LOW);
+  digitalWrite(ENB, LOW);
+
+  while (true);
 }
