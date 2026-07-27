@@ -135,3 +135,11 @@ void loop() {
 
   while (true);
 }
+
+'''
+## 🚀 Applications (Without Sensors)
+
+* **Timed Automated Patrols:** Running fixed, scheduled movement patterns for basic indoor patrolling.
+* **Motor & Driver Testing:** Serving as a testbench to check L293D performance and DC motor balance.
+* **Educational Demonstrations:** Demonstrating Arduino digital/PWM pin control, H-Bridge logic, and non-blocking delays.
+* **Basic Automated Conveyors / Rovers:** Executing precise timed operations (move, pause, switch directions) without external feedback.
