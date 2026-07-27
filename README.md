@@ -135,9 +135,9 @@ void loop() {
 
   while (true);
 }
-
-'''
-## 🚀 Applications (Without Sensors)
+```
+----
+## 🚀 Applications:
 
 * **Timed Automated Patrols:** Running fixed, scheduled movement patterns for basic indoor patrolling.
 * **Motor & Driver Testing:** Serving as a testbench to check L293D performance and DC motor balance.
