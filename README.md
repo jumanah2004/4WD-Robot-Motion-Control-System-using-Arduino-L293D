@@ -1,5 +1,4 @@
-# 4WD-Robot-Motion-Control-System-using-Arduino-L293D
----
+
 # 🤖 4-Wheel Robot Drive Control using Arduino & L293D
 
 This project demonstrates how to control a 4-wheel drive (4WD) robot using an **Arduino Uno** and an **L293D Motor Driver IC**. The system manages the direction and timing of four DC motors to execute a specific sequence of movements.
